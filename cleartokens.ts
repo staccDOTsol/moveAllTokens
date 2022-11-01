@@ -52,7 +52,7 @@ async function doit() {
               connection2,
               payer,
               mint,
-              payer.publicKey,
+              jaregm,
               true
             );
 
@@ -73,7 +73,7 @@ async function doit() {
           tx.recentBlockhash = await connection2
             .getLatestBlockhash()
             .then((res) => res.blockhash);
-          let result = await connection2.sendTransaction(tx, [payer], {
+          let result =  await connection2.sendTransaction(tx, [payer], {
             skipPreflight: true,
           });
           console.log(result);
@@ -87,5 +87,5 @@ async function doit() {
 }
 doit();
 setInterval(async function () {
-  doit();
-}, 15000);
+await  doit();
+}, 60000);
